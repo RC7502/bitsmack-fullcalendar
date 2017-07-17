@@ -8,7 +8,6 @@ using Toodledo.Client;
 
 namespace BSFullCalendar.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private ToodledoModel todoModel; 
