@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Policy;
 using System.Web;
 using Toodledo.Client;
@@ -39,19 +40,29 @@ namespace BSFullCalendar.Models
             get { return (INotebook)this.Session; }
         }
 
-        public IEnumerable<FCEventModel> GetTasks()
+        public FCResponseModel GetTasks()
         {
-            var list = new List<FCEventModel>();
-            var query = new TaskQuery()
+            var response = new FCResponseModel();
+            try
             {
-                NotCompleted = true
-            };
-            var taskResult = Tasks.GetTasks(query);
-            foreach (var task in taskResult.Tasks.Where(x=>x.Due != DateTime.MinValue))
-            {
-                list.Add(Converter.ToEvent(task));
+                var query = new TaskQuery()
+                {
+                    NotCompleted = true
+                };
+                var taskResult = Tasks.GetTasks(query);
+                foreach (var task in taskResult.Tasks)
+                {
+                    if (task.Due != DateTime.MinValue)
+                        response.list1.Add(Converter.ToEvent(task));
+                    else
+                        response.list2.Add(Converter.ToEvent(task));
+                }
             }
-            return list;
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+            }
+            return response;
         }
 
         public FCEventModel UpdateTask(FCEventModel model)

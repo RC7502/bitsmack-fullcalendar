@@ -102,18 +102,23 @@ function LoadTasks() {
         url: 'Home/GetTasks',
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
-        success: function(result) {
-            $("#calendar").fullCalendar('removeEvents',
-                function(event) {
-                    return event.app === "Toodledo";
-                });
-            $("#calendar").fullCalendar('addEventSource',
-            {
-                color: 'yellow',
-                events: result,
-                textColor: 'black',
-                editable: true
-            });
+        success: function (result) {
+            if (result.message != "0") {
+                window.alert(result.message);
+            } else {
+                $("#calendar").fullCalendar('removeEvents',
+                    function(event) {
+                        return event.app === "Toodledo";
+                    });
+                $("#calendar").fullCalendar('addEventSource',
+                {
+                    color: 'yellow',
+                    events: result.list1,
+                    textColor: 'black',
+                    editable: true
+                    });
+                BuildTaskList(result.list2);
+            }
         },
         error: function(jqXHR, textStatus, errorThrown) {
                 window.alert(errorThrown);
@@ -182,7 +187,6 @@ function EditEvent(event) {
         success: function(newEvent) {
             if (newEvent.app === "Toodledo") {
                 LoadTasks();
-                BuildTaskList();
             }
         }
     });
@@ -212,29 +216,18 @@ function NewItemPopup(date) {
 
 }
 
-function BuildTaskList() {
+function BuildTaskList(list) {
     $("#taskList").html("");
-    $.ajax({
-        type: "GET",
-        url: 'Home/GetUnscheduledTasks',
-        dataType: 'json',
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            result.forEach(function(task) {
-                var newDiv = $('<div style="margin-top:10px"></div>');
-                newDiv.addClass('fc-event');
-                newDiv.draggable({
-                    zIndex: 999,
-                    revert: true,      // will cause the event to go back to its
-                    revertDuration: 0  //  original position after the drag
-                });
-                newDiv.data('event', task);
-                newDiv.html(task.title);
-                $("#taskList").append(newDiv);
-            });
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            window.alert(errorThrown);
-        }
+    list.forEach(function(task) {
+        var newDiv = $('<div style="margin-top:10px"></div>');
+        newDiv.addClass('fc-event');
+        newDiv.draggable({
+            zIndex: 999,
+            revert: true,      // will cause the event to go back to its
+            revertDuration: 0  //  original position after the drag
+        });
+        newDiv.data('event', task);
+        newDiv.html(task.title);
+        $("#taskList").append(newDiv);
     });
 }

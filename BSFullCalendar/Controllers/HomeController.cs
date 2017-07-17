@@ -25,16 +25,7 @@ namespace BSFullCalendar.Controllers
 
         public ActionResult GetTasks()
         {
-            FCEventModel[] eventList;
-            try
-            {
-                eventList = todoModel.GetTasks().ToArray();
-            }
-            catch (Exception ex)
-            {
-                return new HttpStatusCodeResult(100,ex.Message);
-            }
-            return Json(eventList, JsonRequestBehavior.AllowGet);
+            return Json(todoModel.GetTasks(), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetFBEvents()
