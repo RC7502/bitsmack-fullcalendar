@@ -16,5 +16,7 @@ namespace BSFullCalendar.Models
         public string priority { get; set; }
         public string rendering { get; set; }
         public bool completed { get; set; }
+        public object color { get; set; }
+        public bool editable { get; set; }
     }
 }

@@ -268,7 +268,7 @@ DTSTART:20170806T200000Z
 DTEND:20170806T230000Z
 UID:e269541410189261@facebook.com
 SUMMARY:Cookout + Games
-LOCATION:Gahanna
+LOCATION:Gahanna\, OH
 URL:https://www.facebook.com/events/269541410189261/
 DESCRIPTION:Let's eat delicious grilled things
   and play some games. I will provi
@@ -1279,32 +1279,5 @@ DESCRIPTION:This summer join Mike\, Kevin\, and
 CLASS:PUBLIC
 STATUS:CONFIRMED
 PARTSTAT:ACCEPTED
-END:VEVENT
-BEGIN:VEVENT
-DTSTAMP:20170612T185206Z
-LAST-MODIFIED:20170612T185206Z
-CREATED:20170612T185204Z
-SEQUENCE:2
-ORGANIZER;CN=The Capital Pride Band of Columbus:MAILTO:noreply@facebookmail.com
-DTSTART:20170617T183000Z
-DTEND:20170617T185000Z
-UID:e138405783389251@facebook.com
-SUMMARY:CapPride Performance at Columbus Pride Festival
-LOCATION:Genoa Park River Stage (behind COS
- I)
-URL:https://www.facebook.com/events/138405783389251/
-DESCRIPTION:Don't miss the Capital Pride March
- ing Band at the Columbus Pride Fes
- tival!\n\nWe will be performing 8 so
- ngs on the River Stage behind COSI
-  at approximately 2:30pm on Saturd
- ay\, June 17\, 2017.\n\nwww.cappride.o
- rg/\nwww.columbuspride.org/\n\nWe hop
- e to see you all there!\n\nhttps://w
- ww.facebook.com/events/13840578338
- 9251/
-CLASS:PUBLIC
-STATUS:CONFIRMED
-PARTSTAT:NEEDS-ACTION
 END:VEVENT
 END:VCALENDAR

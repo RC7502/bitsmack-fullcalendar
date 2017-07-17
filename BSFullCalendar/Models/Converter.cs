@@ -15,8 +15,9 @@ namespace BSFullCalendar.Models
                 id = task.Id,
                 title = task.Name,
                 app = "Toodledo",
-                completed = false
-
+                completed = false,
+                color = GetColor(task),
+                editable = true
             };
             if (task.Due.TimeOfDay.TotalSeconds.Equals(0))
             {
@@ -33,6 +34,29 @@ namespace BSFullCalendar.Models
                 newEvent.end = task.Due.ToString("yyyy-MM-dd HH:mm");
             }
             return newEvent;
+        }
+
+        private static string GetColor(Task task)
+        {
+            if (task.Folder != null)
+            {
+                switch (task.Folder.Name)
+                {
+                    case "Health":
+                        return "#54C6C6";
+                    case "Home":
+                        return "#9B6412";
+                    case "Family":
+                        return "#9BF66E";
+                    case "Creative":
+                        return "orange";
+                    case "Errands":
+                        return "fuchsia";
+                    case "Social\\Party":
+                        return "pink";
+                }
+            }
+            return "yellow";
         }
 
         public static Task ToTask(FCEventModel model, Task task)

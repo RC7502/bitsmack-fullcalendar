@@ -33,6 +33,8 @@ namespace BSFullCalendar.Models
             if(!IsFileLocked(file))
                 calList = Calendar.LoadFromFile(filePath);
 
+            TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+
             foreach (var cal in calList)
             {
                 foreach (var item in cal.Events)
@@ -40,8 +42,8 @@ namespace BSFullCalendar.Models
                     var newEvent = new FCEventModel()
                     {
                         title = item.Summary,
-                        start = item.Start.ToTimeZone("EST").Value.ToLocalTime().ToString(),
-                        end = item.End.ToTimeZone("EST").Value.ToLocalTime().ToString()
+                        start = TimeZoneInfo.ConvertTimeFromUtc(item.Start.Value, easternZone).ToString(),
+                        end = TimeZoneInfo.ConvertTimeFromUtc(item.End.Value, easternZone).ToString()
                     };
                     list.Add(newEvent);
                 }

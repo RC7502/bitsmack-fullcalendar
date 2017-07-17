@@ -13,6 +13,7 @@ function BuildCalendar() {
 
 function GeneralSettings() {
     cal.fullCalendar({
+        contentHeight: "auto",
         nowIndicator: true,
         theme: true,
         defaultView: 'agendaWeek',
@@ -23,7 +24,9 @@ function GeneralSettings() {
             EditEvent(event);
         },
         eventOrder: "priority",
-        header:{
+        header: {
+            left: 'today,prev,next',
+            center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
         forceEventDuration: true,
@@ -221,6 +224,10 @@ function BuildTaskList(list) {
     list.forEach(function(task) {
         var newDiv = $('<div style="margin-top:10px"></div>');
         newDiv.addClass('fc-event');
+        newDiv.css({
+            'background-color': task.color,
+            'color': 'black'
+        });
         newDiv.draggable({
             zIndex: 999,
             revert: true,      // will cause the event to go back to its
