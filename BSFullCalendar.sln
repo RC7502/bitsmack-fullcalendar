@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSFullCalendar", "BSFullCalendar\BSFullCalendar.csproj", "{1CA34798-329C-44E2-B8CD-34B8B6EAA168}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toodledo.Client", "toodledo-api-master\Toodledo.Client\Toodledo.Client.csproj", "{C1CDC4C6-EEE3-4CD3-B76D-5F3927E1ECA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toodledo.Model", "toodledo-api-master\Toodledo.Model\Toodledo.Model.csproj", "{C6ED4620-9232-4070-9B68-6444A3CAE23E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toodledo.Tests", "toodledo-api-master\Toodledo.Tests\Toodledo.Tests.csproj", "{BD100DFB-082E-47B8-BB70-E8DF4B0D1577}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{1CA34798-329C-44E2-B8CD-34B8B6EAA168}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CA34798-329C-44E2-B8CD-34B8B6EAA168}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CA34798-329C-44E2-B8CD-34B8B6EAA168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1CDC4C6-EEE3-4CD3-B76D-5F3927E1ECA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1CDC4C6-EEE3-4CD3-B76D-5F3927E1ECA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1CDC4C6-EEE3-4CD3-B76D-5F3927E1ECA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1CDC4C6-EEE3-4CD3-B76D-5F3927E1ECA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6ED4620-9232-4070-9B68-6444A3CAE23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6ED4620-9232-4070-9B68-6444A3CAE23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6ED4620-9232-4070-9B68-6444A3CAE23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6ED4620-9232-4070-9B68-6444A3CAE23E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD100DFB-082E-47B8-BB70-E8DF4B0D1577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD100DFB-082E-47B8-BB70-E8DF4B0D1577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD100DFB-082E-47B8-BB70-E8DF4B0D1577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD100DFB-082E-47B8-BB70-E8DF4B0D1577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
