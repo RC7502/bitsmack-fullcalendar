@@ -202,7 +202,7 @@ namespace Toodledo.Client
 
         private string formatArgument(TimeSpan value, string name)
         {
-            return (value == TimeSpan.Zero) ? "0" : String.Format("{0}={1};", name, value);
+            return (value == TimeSpan.Zero) ? String.Format("{0}={1};", name, "0") : String.Format("{0}={1};", name, value);
         }
 
         private string formatArgument(Item value, string name)

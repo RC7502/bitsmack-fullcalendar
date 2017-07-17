@@ -268,7 +268,7 @@ DTSTART:20170806T200000Z
 DTEND:20170806T230000Z
 UID:e269541410189261@facebook.com
 SUMMARY:Cookout + Games
-LOCATION:Gahanna\, OH
+LOCATION:Gahanna
 URL:https://www.facebook.com/events/269541410189261/
 DESCRIPTION:Let's eat delicious grilled things
   and play some games. I will provi
@@ -840,41 +840,6 @@ DESCRIPTION:Join the Beers and Board Games Clu
  open to all over age 21.\n\nhttps://
  www.facebook.com/events/1668533906
  493566/
-CLASS:PUBLIC
-STATUS:CONFIRMED
-PARTSTAT:TENTATIVE
-END:VEVENT
-BEGIN:VEVENT
-DTSTAMP:20170628T200406Z
-LAST-MODIFIED:20170628T200406Z
-CREATED:20170628T195604Z
-SEQUENCE:482
-ORGANIZER;CN=Cheryl Harrison:MAILTO:cherylelizabethharrison@gmail.com
-DTSTART:20170718T220000Z
-DTEND:20170719T010000Z
-UID:e678444685682077@facebook.com
-SUMMARY:Gaming for Good at Claddagh Columbus: July 18
-LOCATION:The Claddagh - Downtown Columbus
-URL:https://www.facebook.com/events/678444685682077/
-DESCRIPTION:Join the Beers and Board Games Clu
- b of Columbus for a special gaming
-  for good event in the back room o
- f Claddagh in the Brewery District
- ! Bring some of your favorite game
- s from home\, or just show up to pl
- ay what everyone else brings!\n\nThe
-  Claddagh - Downtown Columbus will
-  be donating 20% from all gamer ch
- ecks this evening to the Beers and
-  Board Games Club of Columbus' ann
- ual funraising for Nationwide Chil
- dren's Hospital through Extra Life
- .\n\nDon't miss this Extra Game Nigh
- t for Extra Life! You can also sup
- port our findraising for Nationwid
- e Kids via Extra Life here: extra-
- life.org/team/bbg\n\nhttps://www.fac
- ebook.com/events/678444685682077/
 CLASS:PUBLIC
 STATUS:CONFIRMED
 PARTSTAT:TENTATIVE

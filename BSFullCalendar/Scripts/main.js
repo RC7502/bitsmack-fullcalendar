@@ -221,7 +221,7 @@ function BuildTaskList() {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             result.forEach(function(task) {
-                var newDiv = $('<div></div>');
+                var newDiv = $('<div style="margin-top:10px"></div>');
                 newDiv.addClass('fc-event');
                 newDiv.draggable({
                     zIndex: 999,
