@@ -47,7 +47,7 @@ namespace BSFullCalendar.Models
                 NotCompleted = true
             };
             var taskResult = Tasks.GetTasks(query);
-            foreach (var task in taskResult.Tasks.Where(x=>x.Due.Year!=1))
+            foreach (var task in taskResult.Tasks.Where(x=>x.Due != DateTime.MinValue))
             {
                 list.Add(Converter.ToEvent(task));
             }
@@ -71,28 +71,7 @@ namespace BSFullCalendar.Models
             }
             if (task != null)
             {
-                    task.Name = model.title;
-                    if (task.Completed.Year.Equals(1) && model.completed)
-                        task.Completed = DateTime.Today;
-                    if (!task.Completed.Year.Equals(1) && !model.completed)
-                        task.Completed = new DateTime(1, 1, 1);
-                    var startTime = DateTime.Parse(model.start, null, System.Globalization.DateTimeStyles.RoundtripKind);
-                    if (model.allDay)
-                    {
-                        task.Start = startTime.Date;
-                        var endTime = model.end != null
-                            ? DateTime.Parse(model.end, null, System.Globalization.DateTimeStyles.RoundtripKind)
-                            : startTime;
-                        task.Due = endTime.Date.AddDays(-1);
-                    }
-                    else
-                    {
-                        task.Start = startTime;
-                        var endTime = model.end != null
-                            ? DateTime.Parse(model.end, null, System.Globalization.DateTimeStyles.RoundtripKind)
-                            : startTime.AddMinutes(30);
-                        task.Due = (endTime.TimeOfDay.TotalSeconds.Equals(0) ? endTime.AddDays(-1) : endTime);
-                    }                                   
+                task = Converter.ToTask(model, task);                             
             }
             if (model.id == 0)
             {
@@ -103,6 +82,21 @@ namespace BSFullCalendar.Models
                 Tasks.EditTask(task);
 
             return model;
+        }
+
+        public IEnumerable<FCEventModel> GetUnscheduledTasks()
+        {
+            var list = new List<FCEventModel>();
+            var query = new TaskQuery()
+            {
+                NotCompleted = true
+            };
+            var taskResult = Tasks.GetTasks(query);
+            foreach (var task in taskResult.Tasks.Where(x => x.Due.Year == 1))
+            {
+                list.Add(Converter.ToEvent(task));
+            }
+            return list;
         }
     }
 }

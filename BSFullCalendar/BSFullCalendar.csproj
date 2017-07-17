@@ -342,6 +342,7 @@
     <Content Include="Content\themes\excitebike\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\themes\excitebike\jquery-ui.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Files\fbevents.ics" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\_run.js" />
@@ -508,7 +509,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -41,6 +41,39 @@ function GeneralSettings() {
         },
         dayClick: function(date) {
             NewItemPopup(date);
+        },
+        droppable: true,
+        drop: function (date) {
+            var eventData = $(this).data('event');
+            if (date.hasTime())
+            {
+                eventData.allDay = false;
+                eventData.start = date;
+                eventData.end = moment(date).add(30, 'm');
+            } else {
+                eventData.allDay = false;
+                eventData.start = date;
+                eventData.end = date;
+            }            
+            EditEvent(eventData);
+            $(this).remove();
+        },
+        eventDragStop: function (event, jsEvent) {
+            var unSched = $("#taskList");
+            var ofs = unSched.offset();
+            var x1 = ofs.left;
+            var x2 = ofs.left + unSched.outerWidth(true);
+            var y1 = ofs.top;
+            var y2 = ofs.top + unSched.outerHeight(true);
+
+            if (jsEvent.pageX >= x1 && jsEvent.pageX <= x2 &&
+                jsEvent.pageY >= y1 && jsEvent.pageY <= y2) {
+                cal.fullCalendar('removeEvents', event.id);
+                event.start = '';
+                event.end = '';
+                EditEvent(event);
+            }
+            
         }
     });
 }
@@ -146,9 +179,11 @@ function EditEvent(event) {
         contentType: "application/json; charset=utf-8",
         url: "Home/EditEvent",
         data: '{model: ' + JSON.stringify(event) + '}',
-        success: function (newEvent) {
-            if (newEvent.app === "Toodledo")
+        success: function(newEvent) {
+            if (newEvent.app === "Toodledo") {
                 LoadTasks();
+                BuildTaskList();
+            }
         }
     });
 
@@ -175,4 +210,31 @@ function NewItemPopup(date) {
     });
     dialog.dialog("open");
 
+}
+
+function BuildTaskList() {
+    $("#taskList").html("");
+    $.ajax({
+        type: "GET",
+        url: 'Home/GetUnscheduledTasks',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            result.forEach(function(task) {
+                var newDiv = $('<div></div>');
+                newDiv.addClass('fc-event');
+                newDiv.draggable({
+                    zIndex: 999,
+                    revert: true,      // will cause the event to go back to its
+                    revertDuration: 0  //  original position after the drag
+                });
+                newDiv.data('event', task);
+                newDiv.html(task.title);
+                $("#taskList").append(newDiv);
+            });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            window.alert(errorThrown);
+        }
+    });
 }

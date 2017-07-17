@@ -39,8 +39,16 @@ namespace BSFullCalendar.Controllers
 
         public ActionResult GetFBEvents()
         {
-            var model = new FBEventModel();
-            var eventList = model.Events().ToArray();
+            FCEventModel[] eventList;
+            try
+            {
+                var model = new FBEventModel();
+                eventList = model.Events().ToArray();
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(100, ex.Message);
+            }
             return Json(eventList, JsonRequestBehavior.AllowGet);
         }
 
@@ -70,6 +78,21 @@ namespace BSFullCalendar.Controllers
         {
             var wModel = new WeatherModel();
             var eventList = model.name == "month" ? wModel.DailyForecast().ToArray() : wModel.HourlyForecast().ToArray();
+            return Json(eventList, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetUnscheduledTasks()
+        {
+            FCEventModel[] eventList;
+            try
+            {
+                //var tempList = new List<FCEventModel> {new FCEventModel() {title = "test external"}};
+                eventList = todoModel.GetUnscheduledTasks().ToArray();
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(100, ex.Message);
+            }
             return Json(eventList, JsonRequestBehavior.AllowGet);
         }
 

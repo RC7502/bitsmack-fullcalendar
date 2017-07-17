@@ -34,5 +34,38 @@ namespace BSFullCalendar.Models
             }
             return newEvent;
         }
+
+        public static Task ToTask(FCEventModel model, Task task)
+        {
+            task.Name = model.title;
+            //if checking/unchecking completed     
+            if (task.Completed.Year.Equals(1) && model.completed)
+                task.Completed = DateTime.Today;
+            if (!task.Completed.Year.Equals(1) && !model.completed)
+                task.Completed = new DateTime(1, 1, 1);
+
+
+            //start and end time
+            DateTime startTime;
+            DateTime endTime;
+            if(DateTime.TryParse(model.start, null, System.Globalization.DateTimeStyles.RoundtripKind, out startTime))
+            {
+                task.Start = model.allDay ? startTime.Date : startTime;
+            }
+            else
+            {
+                task.Start = DateTime.MinValue;
+            }
+            if (DateTime.TryParse(model.end, null, System.Globalization.DateTimeStyles.RoundtripKind, out endTime))
+            {
+                task.Due = model.allDay ? endTime.Date.AddDays(-1) : endTime;
+            }
+            else
+            {
+                task.Due = task.Start.Year != 1 ? task.Start.AddMinutes(30) : DateTime.MinValue;
+            }
+
+            return task;
+        }
     }
 }

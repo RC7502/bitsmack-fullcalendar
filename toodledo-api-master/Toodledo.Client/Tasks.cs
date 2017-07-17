@@ -133,16 +133,16 @@ namespace Toodledo.Client
             builder.Append(formatArgument(task.Context, "context"));
             builder.Append(formatArgument(task.Goal, "goal"));
             builder.Append(formatArgument(task.Parent, "parent"));
-            builder.Append(formatArgument(task.Due.Date, "duedate"));
-            if(task.Due.TimeOfDay.TotalSeconds.Equals(0))
-                builder.Append(formatArgument(0, "duetime"));
+            if(task.Due.Date != DateTime.MinValue)
+                builder.Append(formatArgument(task.Due.Date, "duedate"));
             else
-                builder.Append(formatArgument(task.Due.TimeOfDay, "duetime"));
-            builder.Append(formatArgument(task.Start.Date, "startdate"));
-            if(task.Start.TimeOfDay.TotalSeconds.Equals(0))
-                builder.Append(formatArgument(0, "starttime"));
+                builder.Append(formatArgument("0000-00-00", "duedate"));
+            builder.Append(formatArgument(task.Due.TimeOfDay, "duetime"));
+            if (task.Start.Date != DateTime.MinValue)
+                builder.Append(formatArgument(task.Start.Date, "startdate"));
             else
-                builder.Append(formatArgument(task.Start.TimeOfDay, "starttime"));
+                builder.Append(formatArgument("0000-00-00", "startdate"));
+            builder.Append(formatArgument(task.Start.TimeOfDay, "starttime"));
             builder.Append(formatArgument(task.Reminder, "reminder"));
             builder.Append(formatArgument((int)task.Repeat, "repeat"));
             builder.Append(formatArgument(task.AdvancedRepeat, "rep_advanced"));
