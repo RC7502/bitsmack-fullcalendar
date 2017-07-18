@@ -8,20 +8,25 @@
 
 
 
-<div class="row">
-    <table>
+@*<table>
         <tr>
-            <td><div>
+            <td><div style="vertical-align: top;margin: 20px; width: 200px;">
                 Unscheduled Tasks:
-                <div id="taskList" style="cursor: pointer; width: 150px"></div>
+                <div id="taskList" style="cursor: pointer;"></div>
             </div></td>
             <td>
                 <div id="calendar"></div>
             </td>
         </tr>
-    </table>
-
-
+    </table>*@
+<div>
+    <div style="float: left;width: 200px; height: 93vh;overflow-y: scroll; margin-left: 20px;margin-right:10px">
+        Unscheduled Tasks:
+        <div id="taskList" style="cursor: pointer;"></div>
+    </div>
+    <div style="float: left; width:calc(100% - 230px)">
+        <div id="calendar"></div>
+    </div>
 </div>
 
 <div id="newItemDialog" style="display: none" title="New Item">

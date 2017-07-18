@@ -268,7 +268,7 @@ DTSTART:20170806T200000Z
 DTEND:20170806T230000Z
 UID:e269541410189261@facebook.com
 SUMMARY:Cookout + Games
-LOCATION:Gahanna\, OH
+LOCATION:Gahanna
 URL:https://www.facebook.com/events/269541410189261/
 DESCRIPTION:Let's eat delicious grilled things
   and play some games. I will provi
@@ -431,41 +431,6 @@ DESCRIPTION:We told you it was going to be a s
  tuned for more details\, sour heads
  !\n\nhttps://www.facebook.com/events
  /319488235166667/
-CLASS:PUBLIC
-STATUS:CONFIRMED
-PARTSTAT:TENTATIVE
-END:VEVENT
-BEGIN:VEVENT
-DTSTAMP:20170525T143853Z
-LAST-MODIFIED:20170525T143853Z
-CREATED:20170515T202136Z
-SEQUENCE:843437
-ORGANIZER;CN=NightLight 614:MAILTO:noreply@facebookmail.com
-DTSTART:20170727T233000Z
-DTEND:20170728T033000Z
-UID:e295061347586465@facebook.com
-SUMMARY:NightLight614 presents: Dazed & Confused
-LOCATION:Genoa Park
-URL:https://www.facebook.com/events/295061347586465/
-DESCRIPTION:21+  SUMMER OUTDOOR MOVIE SERIES f
- eaturing CRAFT BEER & WINE\, LOCAL 
- FOOD TRUCKS & the CITY'S BEST VIEW
- !\n\nNightLight 614 is a social outd
- oor film series featuring the best
-  of cinema along with local beer &
-  wine\, local food trucks\, and loca
- l artists & vendors— all under t
- he downtown skyline.  \n\nTHURSDAY J
- ULY 27th\n"DAZED & CONFUSED"\nft.  L
- and Grant Brewing \n\nFood Trucks:\n*
-  Mikey's Late Night Slice\n* Hai Po
- ke\n* Junior's Tacos\n* Kenny's Meat
-  Wagon\n* Cupzilla\n* Bake Me Happy 
- (Dessert)\n\nSEASON PASSES:  SOLD OU
- T\n\nTICKETS: \n$6 - Advanced Admissi
- on\n$15 - Day-Of Admission\nwww.nigh
- tlight614.com\n\nhttps://www.faceboo
- k.com/events/295061347586465/
 CLASS:PUBLIC
 STATUS:CONFIRMED
 PARTSTAT:TENTATIVE
@@ -720,6 +685,42 @@ DESCRIPTION:This highly anticipated summertime
   www.hotribscooljazz.org for more 
  information!\n\nhttps://www.facebook
  .com/events/440220743018621/
+CLASS:PUBLIC
+STATUS:CONFIRMED
+PARTSTAT:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20170717T203041Z
+LAST-MODIFIED:20170717T203041Z
+CREATED:20170717T203014Z
+SEQUENCE:27
+ORGANIZER;CN=Gateway Film Center:MAILTO:noreply@facebookmail.com
+DTSTART:20170721T013000Z
+DTEND:20170723T013000Z
+UID:e478433939178273@facebook.com
+SUMMARY:Cult 101: Memento (2000)
+LOCATION:Gateway Film Center
+URL:https://www.facebook.com/events/478433939178273/
+DESCRIPTION:Cult 101 - Only at GFC!\n\nThe mind-
+ bending “dis-linear” thriller 
+ from acclaimed director Christophe
+ r Nolan (Dunkirk) returns to the b
+ ig screen!\n\nLeonard (Guy Pearce) i
+ s tracking down the man who raped 
+ and murdered his wife. The difficu
+ lty\, however\, of locating his wife
+ 's killer is compounded by the fac
+ t that he suffers from a rare\, unt
+ reatable form of memory loss. Alth
+ ough he can recall details of life
+  before his accident\, Leonard cann
+ ot remember what happened fifteen 
+ minutes ago\, where he's going\, or 
+ why.\n\nTrailer: https://youtu.be/UF
+ uFFdK7i44\n\nJuly 20 - 9:30pm\nJuly 2
+ 1 - 9:30pm\nJuly 22 - 9:30pm\n\nhttps
+ ://www.facebook.com/events/4784339
+ 39178273/
 CLASS:PUBLIC
 STATUS:CONFIRMED
 PARTSTAT:TENTATIVE

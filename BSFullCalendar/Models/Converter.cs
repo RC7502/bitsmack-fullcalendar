@@ -43,20 +43,22 @@ namespace BSFullCalendar.Models
                 switch (task.Folder.Name)
                 {
                     case "Health":
-                        return "#54C6C6";
+                        return "#CCFFFF";
                     case "Home":
-                        return "#9B6412";
+                        return "#CCCCCC";
                     case "Family":
-                        return "#9BF66E";
+                        return "#CCFFCC";
                     case "Creative":
-                        return "orange";
+                        return "#FFDDCC";
                     case "Errands":
-                        return "fuchsia";
-                    case "Social\\Party":
-                        return "pink";
+                        return "#FFAAEE";
+                    case "Social":
+                        return "#FFAACC";
+                    case "Personal":
+                        return "#CCDDFF";
                 }
             }
-            return "yellow";
+            return "#FFFFCC";
         }
 
         public static Task ToTask(FCEventModel model, Task task)

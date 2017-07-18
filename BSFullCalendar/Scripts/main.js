@@ -12,11 +12,12 @@ function BuildCalendar() {
 }
 
 function GeneralSettings() {
-    cal.fullCalendar({
-        contentHeight: "auto",
+    cal.fullCalendar({    
+        height: $(window).height()*0.93,
         nowIndicator: true,
         theme: true,
         defaultView: 'agendaWeek',
+        scrollTime: '05:00:00',
         eventDrop: function (event, delta, revertFunc) {
             EditEvent(event);
         },

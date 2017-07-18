@@ -1,6 +1,7 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
+    height: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -33,4 +34,9 @@ textarea {
         float: none;
         padding: 10px 15px;
     }
+}
+
+.fc-day-grid-container.fc-scroller {
+    height: auto !important;
+    overflow-y: auto;
 }
