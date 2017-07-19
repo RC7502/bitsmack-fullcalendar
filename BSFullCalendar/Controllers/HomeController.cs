@@ -23,9 +23,9 @@ namespace BSFullCalendar.Controllers
             return View();
         }
 
-        public ActionResult GetTasks()
+        public ActionResult GetTasks(FCViewModel view)
         {
-            return Json(todoModel.GetTasks(), JsonRequestBehavior.AllowGet);
+            return Json(todoModel.GetTasks(view), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetFBEvents()

@@ -20,11 +20,12 @@
         </tr>
     </table>*@
 <div>
-    <div style="float: left;width: 200px; height: 93vh;overflow-y: scroll; margin-left: 20px;margin-right:10px">
+    <div style="float: left;width: 200px; max-width: 200px;height: 93vh;overflow-y: scroll; overflow-x: hidden; position: absolute;margin-left: 20px;margin-right:10px">
         Unscheduled Tasks:
-        <div id="taskList" style="cursor: pointer;"></div>
+        <div id="taskList" style="cursor: pointer; width: 170px;"></div>
+
     </div>
-    <div style="float: left; width:calc(100% - 230px)">
+    <div style="float: right; width:calc(100% - 230px)">
         <div id="calendar"></div>
     </div>
 </div>

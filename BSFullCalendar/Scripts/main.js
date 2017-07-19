@@ -7,7 +7,6 @@ $('document').ready(function() {
 function BuildCalendar() {
     GeneralSettings();
     GoogleCalendar();
-    LoadTasks();
     LoadFBEvents();
 }
 
@@ -34,8 +33,10 @@ function GeneralSettings() {
         defaultTimedEventDuration: '00:30:00',
         viewRender: function() {
             LoadWeather();
+            LoadTasks();
         },
         eventRender: function (event, element) {
+            $(element).tooltip({ title: event.title });
             if (event.rendering === 'background') {
                 element.append(event.title);
             }
@@ -89,8 +90,8 @@ function GoogleCalendar() {
         url: "Home/GCal",
         success: function (result) {
             gcal = result;
-            $("#calendar").fullCalendar('option','googleCalendarApiKey', gcal.APIKey);
-            $("#calendar").fullCalendar('addEventSource',
+            cal.fullCalendar('option','googleCalendarApiKey', gcal.APIKey);
+            cal.fullCalendar('addEventSource',
             {
                 googleCalendarId: gcal.CalID,
                 color: 'green'
@@ -101,20 +102,25 @@ function GoogleCalendar() {
 }
 
 function LoadTasks() {
+    var currentView = cal.fullCalendar("getView");
+    var viewModel = {
+        name: currentView.name
+    }
     $.ajax({
         type: "POST",
         url: 'Home/GetTasks',
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
+        data: '{view: ' + JSON.stringify(viewModel) + '}',
         success: function (result) {
-            if (result.message != "0") {
+            if (result.message !== "0") {
                 window.alert(result.message);
             } else {
-                $("#calendar").fullCalendar('removeEvents',
+                cal.fullCalendar('removeEvents',
                     function(event) {
                         return event.app === "Toodledo";
                     });
-                $("#calendar").fullCalendar('addEventSource',
+                cal.fullCalendar('addEventSource',
                 {
                     color: 'yellow',
                     events: result.list1,
@@ -132,17 +138,19 @@ function LoadTasks() {
 }
 
 function TaskRender(event, element) {
-    var checkbox = $("<input type='checkbox'></input>");
-    checkbox.change(function() {
-        if (this.checked) {
-            event.completed = true;
-            cal.fullCalendar("removeEvent", event);
-        } else {
-            event.completed = false;
-        }
-        EditEvent(event);        
-    });
-    element.find(".fc-title").prepend(checkbox);
+    if (!event.repeated) {
+        var checkbox = $("<input type='checkbox'></input>");
+        checkbox.change(function() {
+            if (this.checked) {
+                event.completed = true;
+                cal.fullCalendar("removeEvent", event);
+            } else {
+                event.completed = false;
+            }
+            EditEvent(event);
+        });
+        element.find(".fc-title").prepend(checkbox);
+    }
 }
 
 function LoadFBEvents() {
@@ -154,7 +162,7 @@ function LoadFBEvents() {
 }
 
 function LoadWeather() {
-    var currentView = $("#calendar").fullCalendar("getView");
+    var currentView = cal.fullCalendar("getView");
     var viewModel = {
         name: currentView.name
     }
@@ -221,7 +229,7 @@ function NewItemPopup(date) {
 }
 
 function BuildTaskList(list) {
-    $("#taskList").html("");
+    ResetTaskListHtml();
     list.forEach(function(task) {
         var newDiv = $('<div style="margin-top:10px"></div>');
         newDiv.addClass('fc-event');
@@ -235,7 +243,36 @@ function BuildTaskList(list) {
             revertDuration: 0  //  original position after the drag
         });
         newDiv.data('event', task);
-        newDiv.html(task.title);
-        $("#taskList").append(newDiv);
+        var titleDiv = $("<div></div>");
+        titleDiv.addClass('fc-title').html(task.title);
+        newDiv.append(titleDiv);
+        TaskRender(task, newDiv);
+        switch (task.priority) {
+            case 3:
+                $("#top").append(newDiv);
+                break;
+            case 2:
+                $("#high").append(newDiv);
+                break;
+            case 1:
+                $("#med").append(newDiv);
+                break;
+            case 0:
+                $("#low").append(newDiv);
+                break;
+            case -1:
+                $("#neg").append(newDiv);
+                break;
+        }
+        
     });
+}
+
+function ResetTaskListHtml() {
+    $("#taskList").html("");
+    $("#taskList").append("<div id='top'>Top</div><hr/>");
+    $("#taskList").append("<div id='high'>High</div><hr/>");
+    $("#taskList").append("<div id='med'>Medium</div><hr/>");
+    $("#taskList").append("<div id='low'>Low</div><hr/>");
+    $("#taskList").append("<div id='neg'>Negative</div><hr/>");
 }

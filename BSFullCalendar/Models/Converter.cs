@@ -17,7 +17,9 @@ namespace BSFullCalendar.Models
                 app = "Toodledo",
                 completed = false,
                 color = GetColor(task),
-                editable = true
+                editable = true,
+                repeated = false,
+                priority = (int)task.Priority
             };
             if (task.Due.TimeOfDay.TotalSeconds.Equals(0))
             {
@@ -84,7 +86,7 @@ namespace BSFullCalendar.Models
             }
             if (DateTime.TryParse(model.end, null, System.Globalization.DateTimeStyles.RoundtripKind, out endTime))
             {
-                task.Due = model.allDay ? endTime.Date.AddDays(-1) : endTime;
+                task.Due = model.allDay && endTime != DateTime.MinValue ? endTime.Date.AddDays(-1) : endTime;
             }
             else
             {

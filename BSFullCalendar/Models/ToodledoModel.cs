@@ -54,7 +54,7 @@ namespace BSFullCalendar.Models
             }
         }
 
-        public FCResponseModel GetTasks()
+        public FCResponseModel GetTasks(FCViewModel view)
         {
             var response = new FCResponseModel();
             try
@@ -64,14 +64,17 @@ namespace BSFullCalendar.Models
                     NotCompleted = true
                 };
                 var taskResult = Tasks.GetTasks(query);
-                foreach (var task in taskResult.Tasks.OrderByDescending(x=>x.Added))
+                foreach (var task in taskResult.Tasks.OrderByDescending(x=>x.Priority).ThenByDescending(x=>x.Added))
                 {
                     task.Folder = GetFolder(task.Folder.Id);
                     if (task.Due != DateTime.MinValue)
                     {
-                        response.list1.Add(Converter.ToEvent(task));
-                        if(task.Repeat != Frequency.Once)
-                            response.list1.AddRange(GenerateRecurring(task));
+                        if ((view.name == "month" && task.Priority > 0) || view.name != "month")
+                        {
+                            response.list1.Add(Converter.ToEvent(task));
+                            if (task.Repeat != Frequency.Once)
+                                response.list1.AddRange(GenerateRecurring(task));
+                        }
                     }
                     else
                         response.list2.Add(Converter.ToEvent(task));
@@ -118,6 +121,7 @@ namespace BSFullCalendar.Models
                 }
                 var newEvent = Converter.ToEvent(newTask);
                 newEvent.editable = false;
+                newEvent.repeated = true;
                 list.Add(newEvent);
             }
             return list;

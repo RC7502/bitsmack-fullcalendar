@@ -29,7 +29,6 @@ namespace BSFullCalendar.Models
                     allDay = true,
                     start = new DateTime(1970,1,1).AddSeconds(day.time).ToString("yyyy-MM-dd"),
                     app = "Weather",
-                    priority = "a",
                     rendering = "background"
                 };
                 list.Add(newEvent);
@@ -53,7 +52,6 @@ namespace BSFullCalendar.Models
                     start = wTime.ToString("yyyy-MM-dd HH:mm"),   
                     end = wTime.AddMinutes(30).ToString("yyyy-MM-dd HH:mm"),
                     app = "Weather",
-                    priority = "a",
                     rendering = "background"
                 };
                 list.Add(newEvent);

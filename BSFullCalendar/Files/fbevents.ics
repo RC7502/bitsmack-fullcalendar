@@ -259,6 +259,34 @@ STATUS:CONFIRMED
 PARTSTAT:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
+DTSTAMP:20170717T203717Z
+LAST-MODIFIED:20170717T203717Z
+CREATED:20170717T203711Z
+SEQUENCE:6
+ORGANIZER;CN=COSI Columbus' Dynamic Hands-On Science Center!:MAILTO:noreply@facebookmail.com
+DTSTART:20170810T213000Z
+DTEND:20170811T020000Z
+UID:e1742616319369923@facebook.com
+SUMMARY:COSI After Dark: Throwback Thursday - A 21+ Event
+LOCATION:COSI Columbus' Dynamic Hands-On Sc
+ ience Center!
+URL:https://www.facebook.com/events/1742616319369923/
+DESCRIPTION:Still living in the ‘80s or remi
+ niscing about the ‘90s? Come to 
+ COSI After Dark for a decades-them
+ ed blast from the past – and rev
+ isit some classic COSI experiences
+  while enjoying an adult beverage 
+ and concessions.\n\nCost: Member - $
+ 10\nNonmember - $14 in advance\, $16
+  at the door\n\n21+ only\, please!\n\nh
+ ttps://www.facebook.com/events/174
+ 2616319369923/
+CLASS:PUBLIC
+STATUS:CONFIRMED
+PARTSTAT:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
 DTSTAMP:20170711T151920Z
 LAST-MODIFIED:20170711T151920Z
 CREATED:20170711T151819Z
@@ -360,10 +388,10 @@ STATUS:CONFIRMED
 PARTSTAT:ACCEPTED
 END:VEVENT
 BEGIN:VEVENT
-DTSTAMP:20170714T192059Z
-LAST-MODIFIED:20170714T192059Z
+DTSTAMP:20170718T172320Z
+LAST-MODIFIED:20170718T172320Z
 CREATED:20170706T152530Z
-SEQUENCE:705329
+SEQUENCE:1043870
 ORGANIZER;CN=Wolf's Ridge Brewing:MAILTO:noreply@facebookmail.com
 DTSTART:20170729T140000Z
 DTEND:20170729T220000Z
@@ -422,15 +450,33 @@ DESCRIPTION:We told you it was going to be a s
  ors open at 10:00 am for drafts an
  d food\, and the bottle sale starts
   at 11:00 am (first come\, first se
- rve as always). Expect a unique dr
- aft list with new brews and specia
- l casks! Think you don't like sour
- s?? Stop by during the party to tr
- y some our our traditional\, wild b
- eers on draft and find out!\n\nStay 
- tuned for more details\, sour heads
- !\n\nhttps://www.facebook.com/events
- /319488235166667/
+ rve as always). Think you don't li
+ ke sours?? Stop by during the part
+ y to try some our our traditional\,
+  wild beers on draft and find out!
+ \n\nFinal Draft List:\n\nTerre du Sauv
+ age Gold\nTerre du Sauvage Green\nPi
+ neapple Terre du Sauvage Green\nTer
+ re du Sauvage Red\nTerre du Sauvage
+  Red with Hibiscus and Blood Orang
+ e\nTerre du Sauvage Red Eye-Rye Sai
+ son with One Line Coffee\nRed Legac
+ y\nClear Sky\nClear Sky Daybreak\nGol
+ d Standard\nFeuer und Wasser\nDriftw
+ ood\nSnow Cone\nBeyond Measure\nL’A
+ bondance\nSkylon\nDire Wolf\nDire Wol
+ f Coco Joy\nDire Wolf Coffee Joy\nDi
+ re Wolf Coco Joy with Nuts\n\nCasks 
+ (tapped at 10am):\n-Dire Wolf Nibbl
+ er – Orange Cacao Imperial Stout
+ \n-Strawberry Clear Sky Coconut Cre
+ am Pie\n\nCasks (tapped at 12pm):\n-D
+ riftwood Citrus Surf – Grapefrui
+ t Session IPA \n-Bitter Berries –
+  Snow Cone with fresh Blueberry\, R
+ aspberry\, and Blackberry\n\nhttps://
+ www.facebook.com/events/3194882351
+ 66667/
 CLASS:PUBLIC
 STATUS:CONFIRMED
 PARTSTAT:TENTATIVE
@@ -843,7 +889,7 @@ DESCRIPTION:Join the Beers and Board Games Clu
  493566/
 CLASS:PUBLIC
 STATUS:CONFIRMED
-PARTSTAT:TENTATIVE
+PARTSTAT:ACCEPTED
 END:VEVENT
 BEGIN:VEVENT
 DTSTAMP:20170625T161135Z
